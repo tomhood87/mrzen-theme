@@ -1,0 +1,11 @@
+/*==============================================================================
+// File:        footer.scss
+// Package:     Webiny / Mr Zen
+// Synopsis:    Main footer styles for the website - SASS
+//============================================================================*/
+
+.mz-footer {
+  background: var(--mz-primary-100);
+  padding: var(--mz-p-xl) var(--mz-p-df);
+  position: relative;
+}

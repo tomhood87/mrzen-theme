@@ -1,0 +1,17 @@
+/*==============================================================================
+// File:        link.scss
+// Package:     Webiny / Mr Zen
+// Synopsis:    Shared link component - SASS
+//============================================================================*/
+
+.mz-link {
+  text-decoration: none;
+  color: var(--mz-primary);
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: var(--mz-secondary);
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,500 @@
+/*==============================================================================
+// File:        variables.scss
+// Package:     Webiny / Mr Zen
+// Synopsis:    Main variables & reusable items - SASS
+//============================================================================*/
+
+/*------------------------------------------------------------------------------
+// Global Variables / Bootstrap 5 :root variables
+//----------------------------------------------------------------------------*/
+
+$primary: #0043B3;
+$secondary: #334A71;
+$alternate: #FFC200;
+$highlight: #CC2978;
+$default: #262626;
+
+// Primary shades
+
+$primary-100: #E1ECFB;
+$primary-200: #B3D0F6;
+$primary-300: #80B1F1;
+$primary-400: #4D92EC;
+$primary-500: #1A72E7;
+$primary-600: #005DC6;
+$primary-700: #0043B3;
+$primary-800: #003994;
+$primary-900: #00276A;
+
+// Secondary shades
+
+$secondary-100: #E7EBF2;
+$secondary-200: #C5CEE0;
+$secondary-300: #A2B1CE;
+$secondary-400: #7F94BC;
+$secondary-500: #5C77AA;
+$secondary-600: #4A6391;
+$secondary-700: #334A71;
+$secondary-800: #27395A;
+$secondary-900: #1B2842;
+
+// Alternate shades
+
+$alternate-100: #FFF8E1;
+$alternate-200: #FFECB3;
+$alternate-300: #FFE082;
+$alternate-400: #FFD54F;
+$alternate-500: #FFC107;
+$alternate-600: #FFB300;
+$alternate-700: #FFA000;
+$alternate-800: #FF8F00;
+$alternate-900: #FF6F00;
+
+// Highlight shades
+
+$highlight-100: #FCE4EF;
+$highlight-200: #F8B8D6;
+$highlight-300: #F38CBB;
+$highlight-400: #EE5FA0;
+$highlight-500: #E43189;
+$highlight-600: #D4207D;
+$highlight-700: #CC2978;
+$highlight-800: #A31F60;
+$highlight-900: #7A1747;
+
+// Default shades for Text
+
+$default-500: #8C8C8C;
+$default-600: #595959;
+$default-700: #404040;
+$default-800: #262626;
+$default-900: #000;
+
+$text: $default-800;
+$grey-lightest: #F2F2F2;
+$grey-lighter: #D9D9D9;
+$grey-light: #ADADAD;
+$grey: #8F8F8F;
+$green: #9BD5B8;
+$mint: #61BD8F;
+
+$success: var(--bs-success);
+$warning: var(--bs-warning);
+$danger: #C53230;
+$error: var(--bs-red);
+$info: var(--bs-info);
+
+$base-orange: var(--bs-orange);
+$base-off-white: #F5F3F4;
+$base-white: #FFF;
+$base-black-light: #191919;
+$base-black: #000;
+$base-grey-lightest: #F2F2F2;
+$base-grey-lighter: #EAEAEA;
+$base-grey-light: #DDD;
+$base-grey-darker: #979797;
+$base-grey-dark: #AAA;
+$base-grey: #CCC;
+
+$classic: #44728E;
+$light: var(--bs-light);
+$dark: $base-black;
+
+$image-overlay-bg: rgba($base-black, .2);
+$image-overlay-bg-hover: rgba($base-black, .1);
+$shadow-light: rgba($base-black, .1);
+$shadow-dark: rgba($base-black, .4);
+$shadow: rgba($base-black, .2);
+$shadow-base: 0 0 20px rgba($base-black, .3);
+$border-light: rgba($base-white, .3);
+$text-shadow: rgba($base-black, .5);
+$search-link-bg: rgba($base-black, .4);
+$box-shadow: rgba($base-black, .06);
+$box-shadow-dark: rgba($base-black, .2);
+$box-shadow-darker: rgba($base-black, .5);
+$border-colour: rgba($base-black, .12);
+$border-colour-dark: rgba($base-black, .23);
+$primary-border-hover: rgba($primary, .8);
+$primary-focus: rgba($primary, .4);
+
+/*------------------------------------------------------------------------------
+// Font Variables / Bootstrap 5 :root variables
+//----------------------------------------------------------------------------*/
+
+$default-font-sans: var(--bs-font-sans-serif);
+$default-font-mono: var(--bs-font-monospace);
+
+$primary-font: "Outfit", helvetica, arial, sans-serif;
+$secondary-font: "Outfit", helvetica, arial, sans-serif;
+
+$font-thin: 300;
+$font-normal: 400;
+$font-semi-bold: 600;
+$font-semi-bolder: 700;
+$font-bold: 800;
+
+$font-size-lead: 16px;
+$font-size-df: 14px;
+$font-size-xl: 20px;
+$font-size-lg: 18px;
+$font-size-md: 15px;
+$font-size-sm: 13px;
+$font-size-xs: 12px;
+$font-size-xxs: 10px;
+
+$line-height-df: 18px;
+$line-height-xl: 24px;
+$line-height-lg: 22px;
+$line-height-md: 20px;
+$line-height-sm: 19px;
+$line-height-xs: 16px;
+
+/*------------------------------------------------------------------------------
+// Icon Variables
+//----------------------------------------------------------------------------*/
+
+$icon-size-df: 40px;
+$icon-size-xxl: 64px;
+$icon-size-xl: 46px;
+$icon-size-lg: 36px;
+$icon-size-md: 34px;
+$icon-size-sm: 28px;
+$icon-size-xs: 24px;
+$icon-size-xxs: 16px;
+
+/*------------------------------------------------------------------------------
+// Layout Variables
+//----------------------------------------------------------------------------*/
+
+$m-full-df: 0 0 15px;
+$m-full-xl: 0 0 35px;
+$m-full-lg: 0 0 30px;
+$m-full-md: 0 0 20px;
+$m-full-sm: 0 0 10px;
+$m-full-xs: 0 0 5px;
+
+$div-p-df: 20px;
+$div-p-xl: 40px;
+$div-p-lg: 30px;
+$div-p-md: 25px;
+$div-p-sm: 15px;
+$div-p-xs: 5px;
+
+$select-p-df: 15px;
+$select-p-xl: 30px;
+$select-p-lg: 25px;
+$select-p-md: 20px;
+$select-p-sm: 10px;
+$select-p-xs: 5px;
+
+$link-p-df: 12px;
+$link-p-xl: 30px;
+$link-p-lg: 20px;
+$link-p-md: 15px;
+$link-p-sm: 10px;
+$link-p-xs: 5px;
+
+$btn-p-df: 15px;
+$btn-p-xl: 40px;
+$btn-p-lg: 30px;
+$btn-p-md: 20px;
+$btn-p-sm: 13.6px;
+$btn-p-xs: 7px;
+
+$list-m-df: 20px;
+$list-m-xl: 30px;
+$list-m-lg: 20px;
+$list-m-md: 15px;
+$list-m-sm: 10px;
+$list-m-xs: 5px;
+
+$p-df: 15px;
+$p-xxl: 50px;
+$p-xl: 40px;
+$p-lg: 30px;
+$p-md: 20px;
+$p-sm: 10px;
+$p-xs: 5px;
+
+$m-df: 15px;
+$m-xxl: 50px;
+$m-xl: 40px;
+$m-lg: 30px;
+$m-md: 20px;
+$m-sm: 10px;
+$m-xs: 5px;
+
+$border-radius-df: 0;
+$border-radius-xl: 25px;
+$border-radius-lg: 20px;
+$border-radius-md: 15px;
+$border-radius-sm: 10px;
+$border-radius-xs: 5px;
+
+$letter-space-df: .05em;
+$letter-space-md: 1.2px;
+$letter-space-lg: 1.4px;
+$letter-space-xl: 1.6px;
+
+/*------------------------------------------------------------------------------
+// Breakpoint Variables
+//----------------------------------------------------------------------------*/
+
+$viewport-full-max: 1920px;
+$viewport-full-min: 400px;
+$viewport-xl: 1600px;
+$viewport-lg: 1200px;
+$viewport-md: 992px;
+$viewport-sm: 768px;
+$viewport-xs: 576px;
+
+/*------------------------------------------------------------------------------
+// z-index Variables
+//----------------------------------------------------------------------------*/
+
+$z-index-upper: 40;
+$z-index-lower: 1;
+$z-index-df: 10;
+$z-index-top: 30;
+$z-index-middle: 20;
+$z-index-bottom: 5;
+
+/*------------------------------------------------------------------------------
+// Tag Variables
+//----------------------------------------------------------------------------*/
+
+$primary-tag: rgba($primary, .7);
+$secondary-tag: rgba($secondary, .7);
+$yellow-tag: rgba($warning, .7);
+$green-tag: rgba($green, .7);
+
+/*------------------------------------------------------------------------------
+// CSS Variables
+//----------------------------------------------------------------------------*/
+
+:root {
+  --mz-global-font: "Outfit, helvetica, arial, sans-serif";
+  --mz-secondary-global-font: "Outfit, helvetica, arial, sans-serif";
+  --mz-main-bg-colour: #{$base-white};
+  --mz-image-overlay-bg: #{$image-overlay-bg};
+  --mz-image-overlay-bg-hover: #{$image-overlay-bg-hover};
+  --mz-box-shadow: #{$box-shadow};
+  --mz-border-colour: #{$border-colour};
+  --mz-border-colour-dark: #{$border-colour-dark};
+  // Main Colours
+  --mz-primary: #{$primary};
+  --mz-secondary: #{$secondary};
+  --mz-default-lighter: #{$default-500};
+  --mz-default-light: #{$default-600};
+  --mz-default-dark: #{$default-900};
+  --mz-default: #{$default};
+  --mz-text: #{$text};
+  --mz-green: #{$green};
+  --mz-mint: #{$mint};
+  --mz-grey-lightest: #{$grey-lightest};
+  --mz-grey-lighter: #{$grey-lighter};
+  --mz-grey-light: #{$grey-light};
+  --mz-grey: #{$grey};
+  --mz-success: #{$success};
+  --mz-warning: #{$warning};
+  --mz-danger: #{$danger};
+  --mz-error: #{$error};
+  --mz-info: #{$info};
+  --mz-base-orange: #{$base-orange};
+
+  // Shades of Primary
+  --mz-primary-100: #{$primary-100};
+  --mz-primary-200: #{$primary-200};
+  --mz-primary-300: #{$primary-300};
+  --mz-primary-400: #{$primary-400};
+  --mz-primary-500: #{$primary-500};
+  --mz-primary-600: #{$primary-600};
+  --mz-primary-700: #{$primary-700};
+  --mz-primary-800: #{$primary-800};
+  --mz-primary-900: #{$primary-900};
+
+  // Shades of Secondary
+  --mz-secondary-100: #{$secondary-100};
+  --mz-secondary-200: #{$secondary-200};
+  --mz-secondary-300: #{$secondary-300};
+  --mz-secondary-400: #{$secondary-400};
+  --mz-secondary-500: #{$secondary-500};
+  --mz-secondary-600: #{$secondary-600};
+  --mz-secondary-700: #{$secondary-700};
+  --mz-secondary-800: #{$secondary-800};
+  --mz-secondary-900: #{$secondary-900};
+
+  // Shades of Alternate
+  --mz-alternate-100: #{$alternate-100};
+  --mz-alternate-200: #{$alternate-200};
+  --mz-alternate-300: #{$alternate-300};
+  --mz-alternate-400: #{$alternate-400};
+  --mz-alternate-500: #{$alternate-500};
+  --mz-alternate-600: #{$alternate-600};
+  --mz-alternate-700: #{$alternate-700};
+  --mz-alternate-800: #{$alternate-800};
+  --mz-alternate-900: #{$alternate-900};
+
+  // Shades of Highlight
+  --mz-highlight-100: #{$highlight-100};
+  --mz-highlight-200: #{$highlight-200};
+  --mz-highlight-300: #{$highlight-300};
+  --mz-highlight-400: #{$highlight-400};
+  --mz-highlight-500: #{$highlight-500};
+  --mz-highlight-600: #{$highlight-600};
+  --mz-highlight-700: #{$highlight-700};
+  --mz-highlight-800: #{$highlight-800};
+  --mz-highlight-900: #{$highlight-900};
+
+  // Black and White
+  --mz-base-off-white: #{$base-off-white};
+  --mz-base-white: #{$base-white};
+  --mz-base-black-light: #{$base-black-light};
+  --mz-base-black: #{$base-black};
+  --mz-base-grey-lightest: #{$base-grey-lightest};
+  --mz-base-grey-lighter: #{$base-grey-lighter};
+  --mz-base-grey-light: #{$base-grey-light};
+  --mz-base-grey-darker: #{$base-grey-darker};
+  --mz-base-grey-dark: #{$base-grey-dark};
+  --mz-base-grey: #{$base-grey};
+
+  // Standard Colours
+  --mz-classic: #{$classic};
+  --mz-light: #{$light};
+  --mz-dark: #{$dark};
+  --mz-shadow-light: #{$shadow-light};
+  --mz-shadow-dark: #{$shadow-dark};
+  --mz-shadow: #{$shadow};
+  --mz-shadow-base: #{$shadow-base};
+  --mz-border-light: #{$border-light};
+  --mz-text-shadow: #{$text-shadow};
+
+  // Font Size and Weight
+  --mz-default-font-sans: #{$default-font-sans};
+  --mz-default-font-mono: #{$default-font-mono};
+  --mz-primary-font: #{$primary-font};
+  --mz-font-thin: #{$font-thin};
+  --mz-font-normal: #{$font-normal};
+  --mz-font-semi-bold: #{$font-semi-bold};
+  --mz-font-semi-bolder: #{$font-semi-bolder};
+  --mz-font-bold: #{$font-bold};
+  --mz-font-size-df: #{$font-size-df};
+  --mz-font-size-xl: #{$font-size-xl};
+  --mz-font-size-lg: #{$font-size-lg};
+  --mz-font-size-md: #{$font-size-md};
+  --mz-font-size-sm: #{$font-size-sm};
+  --mz-font-size-xs: #{$font-size-xs};
+  --mz-font-size-xxs: #{$font-size-xxs};
+  --mz-font-size-lead: #{$font-size-lead};
+
+  // Line Height
+  --mz-line-height-df: #{$line-height-df};
+  --mz-line-height-xl: #{$line-height-xl};
+  --mz-line-height-lg: #{$line-height-lg};
+  --mz-line-height-md: #{$line-height-md};
+  --mz-line-height-sm: #{$line-height-sm};
+  --mz-line-height-xs: #{$line-height-xs};
+
+  // Icon Sizing
+  --mz-icon-size-df: #{$icon-size-df};
+  --mz-icon-size-xxl: #{$icon-size-xxl};
+  --mz-icon-size-xl: #{$icon-size-xl};
+  --mz-icon-size-lg: #{$icon-size-lg};
+  --mz-icon-size-md: #{$icon-size-md};
+  --mz-icon-size-sm: #{$icon-size-sm};
+  --mz-icon-size-xs: #{$icon-size-xs};
+  --mz-icon-size-xxs: #{$icon-size-xxs};
+
+  // Margin
+  --mz-m-full-df: #{$m-full-df};
+  --mz-m-full-xl: #{$m-full-xl};
+  --mz-m-full-lg: #{$m-full-lg};
+  --mz-m-full-md: #{$m-full-md};
+  --mz-m-full-sm: #{$m-full-sm};
+  --mz-m-full-xs: #{$m-full-xs};
+
+  // Div Padding
+  --mz-div-p-df: #{$div-p-df};
+  --mz-div-p-xl: #{$div-p-xl};
+  --mz-div-p-lg: #{$div-p-lg};
+  --mz-div-p-md: #{$div-p-md};
+  --mz-div-p-sm: #{$div-p-sm};
+  --mz-div-p-xs: #{$div-p-xs};
+
+  // Select Box Padding
+  --mz-select-p-df: #{$select-p-df};
+  --mz-select-p-xl: #{$select-p-xl};
+  --mz-select-p-lg: #{$select-p-lg};
+  --mz-select-p-md: #{$select-p-md};
+  --mz-select-p-sm: #{$select-p-sm};
+  --mz-select-p-xs: #{$select-p-xs};
+
+  // Link Padding
+  --mz-link-p-df: #{$link-p-df};
+  --mz-link-p-xl: #{$link-p-xl};
+  --mz-link-p-lg: #{$link-p-lg};
+  --mz-link-p-md: #{$link-p-md};
+  --mz-link-p-sm: #{$link-p-sm};
+  --mz-link-p-xs: #{$link-p-xs};
+
+  // Button Padding
+  --mz-btn-p-df: #{$btn-p-df};
+  --mz-btn-p-xl: #{$btn-p-xl};
+  --mz-btn-p-lg: #{$btn-p-lg};
+  --mz-btn-p-md: #{$btn-p-md};
+  --mz-btn-p-sm: #{$btn-p-sm};
+  --mz-btn-p-xs: #{$btn-p-xs};
+
+  // List Margin
+  --mz-list-m-df: #{$list-m-df};
+  --mz-list-m-xl: #{$list-m-xl};
+  --mz-list-m-lg: #{$list-m-lg};
+  --mz-list-m-md: #{$list-m-md};
+  --mz-list-m-sm: #{$list-m-sm};
+  --mz-list-m-xs: #{$list-m-xs};
+
+  // Padding & Margin
+  --mz-p-df: #{$p-df};
+  --mz-p-xxl: #{$p-xxl};
+  --mz-p-xl: #{$p-xl};
+  --mz-p-lg: #{$p-lg};
+  --mz-p-md: #{$p-md};
+  --mz-p-sm: #{$p-sm};
+  --mz-p-xs: #{$p-xs};
+  --mz-m-df: #{$m-df};
+  --mz-m-xxl: #{$m-xxl};
+  --mz-m-xl: #{$m-xl};
+  --mz-m-lg: #{$m-lg};
+  --mz-m-md: #{$m-md};
+  --mz-m-sm: #{$m-sm};
+  --mz-m-xs: #{$m-xs};
+
+  // Border Radius
+  --mz-border-radius-df: #{$border-radius-df};
+  --mz-border-radius-xl: #{$border-radius-xl};
+  --mz-border-radius-lg: #{$border-radius-lg};
+  --mz-border-radius-md: #{$border-radius-md};
+  --mz-border-radius-sm: #{$border-radius-sm};
+  --mz-border-radius-xs: #{$border-radius-xs};
+
+  // Letter Spacing
+  --mz-letter-space-df: #{$letter-space-df};
+  --mz-letter-space-md: #{$letter-space-md};
+  --mz-letter-space-lg: #{$letter-space-lg};
+  --mz-letter-space-xl: #{$letter-space-xl};
+
+  // Viewport
+  --mz-viewport-full-max: #{$viewport-full-max};
+  --mz-viewport-full-min: #{$viewport-full-min};
+  --mz-viewport-xl: #{$viewport-xl};
+  --mz-viewport-lg: #{$viewport-lg};
+  --mz-viewport-md: #{$viewport-md};
+  --mz-viewport-sm: #{$viewport-sm};
+  --mz-viewport-xs: #{$viewport-xs};
+
+  // Z index
+  --mz-z-index-df: #{$z-index-df};
+  --mz-z-index-top: #{$z-index-top};
+  --mz-z-index-middle: #{$z-index-middle};
+  --mz-z-index-bottom: #{$z-index-bottom};
+}

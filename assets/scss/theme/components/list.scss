@@ -1,0 +1,32 @@
+/*==============================================================================
+// File:        list.scss
+// Package:     Webiny / Mr Zen
+// Synopsis:    Shared list component - SASS
+//============================================================================*/
+
+.mz-list {
+  padding: 0;
+  margin: 0;
+
+  /*==============================================================================
+  // Modifiers
+  //============================================================================*/
+
+  @include modifier("no-type") {
+    list-style-type: none;
+  }
+
+  @include modifier("menu") {
+    text-transform: none;
+    flex-direction: row;
+    display: flex;
+    height: auto;
+
+    li {
+      justify-content: space-around;
+      margin: 0 var(--mz-m-df) 0 0;
+      align-items: center;
+      display: flex;
+    }
+  }
+}
