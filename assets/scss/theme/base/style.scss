@@ -12,12 +12,26 @@ iframe {
   border: none;
 }
 
+/*==============================================================================
+// Mr Zen Utility Classes
+//============================================================================*/
+
 .zen-italic {
   font-style: italic;
 }
 
 .zen-bold {
   font-weight: bold;
+}
+
+/*==============================================================================
+// Home page customisation
+//============================================================================*/
+
+.webiny-pb-section__content,
+.webiny-pb-section__content .webiny-pb-grid,
+pb-grid {
+  max-width: 1600px !important;
 }
 
 .home-heading {
