@@ -1,6 +1,9 @@
-import { useContext, type ReactNode, type CSSProperties } from "react"
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client"
+import { useContext, useEffect, useState, type ReactNode, type CSSProperties } from "react"
 import { ThemeTokensContext } from "../providers/ThemeProviders"
 import type { LayoutProps } from "../types/theme"
+import { getMenu, type MenuItem } from "../../lib/api"
 
 type ShellProps = { children: ReactNode; tone?: "default" | "muted" }
 
@@ -222,6 +225,13 @@ export function ArticleLayout({ children, title, subtitle }: LayoutProps) {
 
 export function MZLayout({ children, title, subtitle }: LayoutProps) {
   const tokens = useContext(ThemeTokensContext)
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([])
+
+  useEffect(() => {
+    getMenu("main-menu")
+      .then(items => setMenuItems(items))
+      .catch(() => setMenuItems([]))
+  }, [])
 
   const headerStyle: CSSProperties = {
     background: tokens.surfaceStrong,
@@ -293,6 +303,33 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
               Contact
             </a>
           </nav>
+          <details style={{ marginLeft: "1rem" }}>
+            <summary style={{ cursor: "pointer", color: tokens.muted, fontSize: "0.95rem" }}>Menu data</summary>
+            <div
+              style={{
+                marginTop: "0.6rem",
+                padding: "0.75rem",
+                borderRadius: "10px",
+                background: tokens.surface,
+                border: `1px solid ${tokens.border}`,
+                minWidth: "220px"
+              }}
+            >
+              {menuItems.length === 0 ? (
+                <div style={{ color: tokens.muted, fontSize: "0.9rem" }}>No menu items</div>
+              ) : (
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.4rem" }}>
+                  {menuItems.map(item => (
+                    <li key={`${item.slug}-${item.title}`}>
+                      <a href={item.slug} style={{ color: tokens.text, textDecoration: "none" }}>
+                        {item.title} <span style={{ color: tokens.muted }}>({item.slug})</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </details>
         </div>
       </header>
       <main style={{ padding: "2.5rem 1.5rem" }}>

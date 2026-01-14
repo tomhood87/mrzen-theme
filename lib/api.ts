@@ -29,10 +29,32 @@ async function fetchFromThemeApi<T>(path: string): Promise<T | null> {
   }
 }
 
-export async function getMenu(): Promise<MenuItem[]> {
-  const data = await fetchFromThemeApi<Record<string, MenuItem>>("/api/menu")
+type ApiMenuResponse =
+  | MenuItem[]
+  | {
+      items?: MenuItem[]
+      [key: string]: MenuItem | MenuItem[] | undefined
+    }
+  | Record<string, MenuItem>
+
+export async function getMenu(menuSlug = "main-menu"): Promise<MenuItem[]> {
+  const data = await fetchFromThemeApi<ApiMenuResponse>(`/api/menu?slug=${encodeURIComponent(menuSlug)}`)
   if (!data) return []
-  return Object.values(data).filter(item => item.slug !== "/")
+
+  if (Array.isArray(data)) return data
+
+  if (typeof data === "object" && data !== null) {
+    const list = Array.isArray((data as { items?: MenuItem[] }).items)
+      ? (data as { items?: MenuItem[] }).items
+      : Array.isArray((data as Record<string, MenuItem[]>)[menuSlug])
+        ? (data as Record<string, MenuItem[]>)[menuSlug]
+        : null
+    if (list) return list
+
+    return Object.values(data as Record<string, MenuItem>).filter(item => item.slug !== "/")
+  }
+
+  return []
 }
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {

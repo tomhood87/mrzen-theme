@@ -2,7 +2,7 @@ import Link from "next/link"
 import { getMenu, getSiteSettings } from "@/lib/api"
 
 export default async function Header() {
-  const [menuItems, settings] = await Promise.all([getMenu(), getSiteSettings()])
+  const [menuItems, settings] = await Promise.all([getMenu("main-menu"), getSiteSettings()])
   const siteName = settings?.name || "Site Name"
 
   return (
