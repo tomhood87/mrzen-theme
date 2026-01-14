@@ -220,4 +220,118 @@ export function ArticleLayout({ children, title, subtitle }: LayoutProps) {
   )
 }
 
+export function MZLayout({ children, title, subtitle }: LayoutProps) {
+  const tokens = useContext(ThemeTokensContext)
+
+  const headerStyle: CSSProperties = {
+    background: tokens.surfaceStrong,
+    borderBottom: `1px solid ${tokens.border}`,
+    boxShadow: "0 12px 40px rgba(0,0,0,0.25)",
+    position: "sticky",
+    top: 0,
+    zIndex: 20
+  }
+
+  const navItemStyle: CSSProperties = {
+    color: tokens.muted,
+    textDecoration: "none",
+    fontSize: "0.95rem",
+    padding: "0.5rem 0.75rem",
+    borderRadius: "8px"
+  }
+
+  return (
+    <div style={{ background: tokens.background, minHeight: "100vh" }}>
+      <header style={headerStyle}>
+        <div
+          style={{
+            ...containerStyle,
+            padding: "1.1rem 1.5rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "1rem",
+            justifyContent: "space-between"
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+            <div
+              style={{
+                width: 38,
+                height: 38,
+                borderRadius: "12px",
+                background: `radial-gradient(circle at 30% 30%, ${tokens.accent}, #4bd0f7 70%)`,
+                boxShadow: "0 12px 35px rgba(110,240,193,0.35)"
+              }}
+            />
+            <div>
+              <div style={{ fontWeight: 800, letterSpacing: "0.04em", fontSize: "1.1rem", color: tokens.text }}>
+                MZ
+              </div>
+              <div style={{ color: tokens.muted, fontSize: "0.85rem" }}>Client experience</div>
+            </div>
+          </div>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <a href="#solutions" style={navItemStyle}>
+              Solutions
+            </a>
+            <a href="#resources" style={navItemStyle}>
+              Resources
+            </a>
+            <a href="#company" style={navItemStyle}>
+              Company
+            </a>
+            <a
+              href="#cta"
+              style={{
+                ...navItemStyle,
+                color: "#041421",
+                background: tokens.accent,
+                fontWeight: 700,
+                boxShadow: "0 14px 40px rgba(110,240,193,0.35)"
+              }}
+            >
+              Contact
+            </a>
+          </nav>
+        </div>
+      </header>
+      <main style={{ padding: "2.5rem 1.5rem" }}>
+        <section
+          style={{
+            ...containerStyle,
+            padding: 0,
+            display: "grid",
+            gap: "1.5rem"
+          }}
+        >
+          {(title || subtitle) && (
+            <div
+              style={{
+                background: `linear-gradient(120deg, rgba(110,240,193,0.1), ${tokens.surfaceStrong})`,
+                border: `1px solid ${tokens.border}`,
+                borderRadius: "var(--mrzen-radius)",
+                padding: "1.5rem"
+              }}
+            >
+              {title && <h1 style={{ margin: "0 0 0.35rem" }}>{title}</h1>}
+              {subtitle && <p style={{ margin: 0, color: tokens.muted }}>{subtitle}</p>}
+            </div>
+          )}
+          <div
+            style={{
+              padding: "1.5rem",
+              borderRadius: "var(--mrzen-radius)",
+              background: tokens.surface,
+              border: `1px solid ${tokens.border}`,
+              boxShadow: "0 18px 50px rgba(0,0,0,0.18)"
+            }}
+          >
+            {children}
+          </div>
+        </section>
+      </main>
+    </div>
+  )
+}
+
 export const PageLayout = DefaultLayout

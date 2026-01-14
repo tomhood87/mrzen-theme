@@ -1,6 +1,6 @@
 import type { Theme, LayoutComponent, BlockLayoutComponent } from "./types/theme"
 import { ThemeProviders } from "./providers/ThemeProviders"
-import { ArticleLayout, DefaultLayout, LandingLayout, PageLayout } from "./layouts/PageLayouts"
+import { ArticleLayout, DefaultLayout, LandingLayout, MZLayout, PageLayout } from "./layouts/PageLayouts"
 import {
   DefaultBlockLayout,
   GridBlockLayout,
@@ -15,6 +15,7 @@ function normalizeKey(value?: string | null): string {
 const pageLayouts: Record<string, LayoutComponent> = {
   landing: LandingLayout,
   article: ArticleLayout,
+  mz: MZLayout,
   default: DefaultLayout
 }
 
