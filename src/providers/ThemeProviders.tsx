@@ -14,8 +14,8 @@ export type ThemeTokens = {
 
 const DEFAULT_TOKENS: ThemeTokens = {
   background: "#FFF",
-  surface: "#f7f8f9",
-  surfaceStrong: "#141d3d",
+  surface: "#F7F8F9",
+  surfaceStrong: "#FFF",
   text: "#000",
   muted: "#666",
   accent: "#0043b3",
