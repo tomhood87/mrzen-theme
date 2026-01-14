@@ -1,0 +1,223 @@
+import { useContext, type ReactNode, type CSSProperties } from "react"
+import { ThemeTokensContext } from "../providers/ThemeProviders"
+import type { LayoutProps } from "../types/theme"
+
+type ShellProps = { children: ReactNode; tone?: "default" | "muted" }
+
+const containerStyle = {
+  maxWidth: "1100px",
+  margin: "0 auto",
+  padding: "2.5rem 1.5rem"
+} satisfies CSSProperties
+
+const navLinkStyle = {
+  color: "var(--mrzen-muted)",
+  textDecoration: "none",
+  fontSize: "0.95rem"
+} satisfies CSSProperties
+
+const badgeStyle = {
+  display: "inline-block",
+  padding: "0.35rem 0.8rem",
+  borderRadius: "999px",
+  border: "1px solid var(--mrzen-border)",
+  background: "rgba(255,255,255,0.04)",
+  color: "var(--mrzen-muted)",
+  fontSize: "0.8rem",
+  letterSpacing: "0.06em",
+  textTransform: "uppercase"
+} satisfies CSSProperties
+
+function Shell({ children, tone = "default" }: ShellProps) {
+  const tokens = useContext(ThemeTokensContext)
+
+  const headerStyle: CSSProperties = {
+    borderBottom: `1px solid ${tokens.border}`,
+    background:
+      tone === "muted"
+        ? `linear-gradient(120deg, rgba(110,240,193,0.05), rgba(20,29,61,0.9))`
+        : "transparent",
+    position: "sticky",
+    top: 0,
+    backdropFilter: "blur(10px)",
+    zIndex: 10
+  }
+
+  return (
+    <div>
+      <header style={headerStyle}>
+        <div style={{ ...containerStyle, padding: "1.25rem 1.5rem", display: "flex", alignItems: "center", gap: "1rem", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
+            <div
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: "10px",
+                background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`,
+                boxShadow: "0 10px 30px rgba(78, 227, 195, 0.25)"
+              }}
+            />
+            <div>
+              <div style={{ color: "var(--mrzen-text)", fontWeight: 700, letterSpacing: "0.02em" }}>MRZen</div>
+              <div style={{ color: "var(--mrzen-muted)", fontSize: "0.85rem" }}>Framework theme</div>
+            </div>
+          </div>
+          <nav style={{ display: "flex", gap: "1rem" }}>
+            <a href="#pages" style={navLinkStyle}>
+              Pages
+            </a>
+            <a href="#blocks" style={navLinkStyle}>
+              Blocks
+            </a>
+            <a href="#contact" style={{ ...navLinkStyle, color: "var(--mrzen-text)" }}>
+              Contact
+            </a>
+          </nav>
+        </div>
+      </header>
+      <main>{children}</main>
+      <footer
+        style={{
+          borderTop: `1px solid ${tokens.border}`,
+          padding: "1.5rem 1.5rem",
+          color: "var(--mrzen-muted)",
+          fontSize: "0.9rem"
+        }}
+      >
+        <div style={containerStyle}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
+            <span>Built with MRZen Theme contract.</span>
+            <span style={{ color: tokens.accent }}>Ready for pages & blocks.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
+
+export function DefaultLayout({ children, title, subtitle }: LayoutProps) {
+  return (
+    <Shell>
+      <section style={containerStyle}>
+        {(title || subtitle) && (
+          <div style={{ marginBottom: "1.5rem" }}>
+            {title && <h1 style={{ margin: 0, fontSize: "2rem" }}>{title}</h1>}
+            {subtitle && (
+              <p style={{ margin: "0.35rem 0 0", color: "var(--mrzen-muted)", maxWidth: 600 }}>{subtitle}</p>
+            )}
+          </div>
+        )}
+        <div
+          style={{
+            padding: "1.75rem",
+            borderRadius: "var(--mrzen-radius)",
+            background: "var(--mrzen-surface)",
+            border: "1px solid var(--mrzen-border)",
+            boxShadow: "0 18px 50px rgba(0,0,0,0.15)"
+          }}
+        >
+          {children}
+        </div>
+      </section>
+    </Shell>
+  )
+}
+
+export function LandingLayout({ children, title, subtitle }: LayoutProps) {
+  return (
+    <Shell tone="muted">
+      <section
+        style={{
+          padding: "3rem 1.5rem 1.5rem",
+          background: "linear-gradient(135deg, rgba(78,227,195,0.18), rgba(20,29,61,0.9))",
+          borderBottom: "1px solid var(--mrzen-border)"
+        }}
+      >
+        <div style={containerStyle}>
+          <div style={badgeStyle}>Landing</div>
+          <h1 style={{ margin: "0.6rem 0 0.4rem", fontSize: "2.4rem", lineHeight: 1.25 }}>
+            {title || "Launch with confidence"}
+          </h1>
+          <p style={{ color: "var(--mrzen-muted)", maxWidth: 720, margin: 0 }}>
+            {subtitle || "A hero-friendly layout with space for punchy headlines and a clear call-to-action."}
+          </p>
+          <div style={{ display: "flex", gap: "0.75rem", marginTop: "1.25rem", flexWrap: "wrap" }}>
+            <a
+              href="#get-started"
+              style={{
+                padding: "0.75rem 1.4rem",
+                background: "var(--mrzen-accent)",
+                color: "#041421",
+                borderRadius: "999px",
+                textDecoration: "none",
+                fontWeight: 700,
+                boxShadow: "0 18px 50px rgba(110,240,193,0.35)"
+              }}
+            >
+              Get started
+            </a>
+            <a
+              href="#learn"
+              style={{
+                padding: "0.75rem 1.4rem",
+                border: "1px solid var(--mrzen-border)",
+                borderRadius: "999px",
+                color: "var(--mrzen-text)",
+                textDecoration: "none"
+              }}
+            >
+              Learn more
+            </a>
+          </div>
+        </div>
+      </section>
+      <section style={{ ...containerStyle, marginTop: "1.5rem" }}>{children}</section>
+    </Shell>
+  )
+}
+
+export function ArticleLayout({ children, title, subtitle }: LayoutProps) {
+  return (
+    <Shell>
+      <section style={{ ...containerStyle, display: "grid", gridTemplateColumns: "1fr 320px", gap: "1.5rem" }}>
+        <article
+          style={{
+            padding: "1.5rem",
+            borderRadius: "var(--mrzen-radius)",
+            background: "var(--mrzen-surface)",
+            border: "1px solid var(--mrzen-border)"
+          }}
+        >
+          {(title || subtitle) && (
+            <header style={{ marginBottom: "1.2rem" }}>
+              {title && <h1 style={{ margin: "0 0 0.35rem" }}>{title}</h1>}
+              {subtitle && (
+                <p style={{ margin: 0, color: "var(--mrzen-muted)" }}>
+                  {subtitle}
+                </p>
+              )}
+            </header>
+          )}
+          {children}
+        </article>
+        <aside
+          style={{
+            padding: "1.5rem",
+            borderRadius: "var(--mrzen-radius)",
+            background: "var(--mrzen-surface-strong)",
+            border: "1px solid var(--mrzen-border)",
+            color: "var(--mrzen-muted)"
+          }}
+        >
+          <div style={{ fontWeight: 700, color: "var(--mrzen-text)", marginBottom: "0.6rem" }}>Article layout</div>
+          <p style={{ margin: 0 }}>
+            Use this layout for long-form content. The sidebar is a natural slot for a table of contents,
+            author info, or related links.
+          </p>
+        </aside>
+      </section>
+    </Shell>
+  )
+}
+
+export const PageLayout = DefaultLayout

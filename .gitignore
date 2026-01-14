@@ -9,6 +9,7 @@ nuxt.d.ts
 package-lock.json
 framework
 dist
+.tmp
 .DS_Store
 .vercel
 
