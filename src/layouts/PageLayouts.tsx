@@ -3,12 +3,12 @@
 import { useContext, useEffect, useState, type ReactNode, type CSSProperties } from "react"
 import { ThemeTokensContext } from "../providers/ThemeProviders"
 import type { LayoutProps } from "../types/theme"
-import { getMenu, type MenuItem } from "../../lib/api"
+import { getMenu, type MenuItem } from "@/lib/api"
 
 type ShellProps = { children: ReactNode; tone?: "default" | "muted" }
 
 const containerStyle = {
-  maxWidth: "1100px",
+  maxWidth: "1600px",
   margin: "0 auto",
   padding: "2.5rem 1.5rem"
 } satisfies CSSProperties
@@ -89,8 +89,7 @@ function Shell({ children, tone = "default" }: ShellProps) {
       >
         <div style={containerStyle}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
-            <span>Built with MRZen Theme contract.</span>
-            <span style={{ color: tokens.accent }}>Ready for pages & blocks.</span>
+            <span>Static theme.</span>
           </div>
         </div>
       </footer>

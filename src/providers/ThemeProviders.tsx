@@ -13,12 +13,12 @@ export type ThemeTokens = {
 }
 
 const DEFAULT_TOKENS: ThemeTokens = {
-  background: "#0c1024",
-  surface: "#0f162f",
+  background: "#FFF",
+  surface: "#f7f8f9",
   surfaceStrong: "#141d3d",
-  text: "#e6ecff",
-  muted: "#9fb0d7",
-  accent: "#6ef0c1",
+  text: "#000",
+  muted: "#666",
+  accent: "#0043b3",
   border: "rgba(255,255,255,0.08)",
   radius: "14px",
   fontStack: "'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif"
