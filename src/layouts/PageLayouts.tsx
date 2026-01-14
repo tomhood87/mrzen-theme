@@ -3,7 +3,7 @@
 import { useContext, useEffect, useState, type ReactNode, type CSSProperties } from "react"
 import { ThemeTokensContext } from "../providers/ThemeProviders"
 import type { LayoutProps } from "../types/theme"
-import { getMenu, type MenuItem } from "@/lib/api"
+import { getMenu, type MenuItem } from "../../lib/api"
 
 type ShellProps = { children: ReactNode; tone?: "default" | "muted" }
 
