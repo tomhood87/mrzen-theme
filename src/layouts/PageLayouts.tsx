@@ -36,14 +36,17 @@ function Shell({ children, tone = "default" }: ShellProps) {
 
   const headerStyle: CSSProperties = {
     borderBottom: `1px solid ${tokens.border}`,
-    background:
-      tone === "muted"
-        ? `linear-gradient(120deg, rgba(110,240,193,0.05), rgba(20,29,61,0.9))`
-        : "transparent",
+    background: "#FFF",
     position: "sticky",
     top: 0,
     backdropFilter: "blur(10px)",
-    zIndex: 10
+    zIndex: 1
+  }
+
+  const containerStyle = {
+    maxWidth: "100%",
+    padding: "0",
+    margin: "0"
   }
 
   return (
