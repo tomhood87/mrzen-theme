@@ -269,12 +269,11 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
             <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
               {menuItems.map((item, index) => {
                 const href = (item as { slug?: string; path?: string }).slug ?? (item as { path?: string }).path ?? "#"
-                const isCta = index === menuItems.length - 1
                 const normalize = (value: string) => (value === "/" ? "/" : value.replace(/\/+$/, ""))
                 const current = pathname ? normalize(pathname) : ""
                 const target = normalize(href)
                 const isActive = current === target || current.startsWith(`${target}/`)
-                const activeStyle = isCta || isActive
+                const activeStyle = isActive
                   ? {
                       ...navItemStyle,
                       color: "#FFF",
