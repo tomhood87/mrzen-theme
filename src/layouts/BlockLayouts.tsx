@@ -11,7 +11,7 @@ export function DefaultBlockLayout({ children, background }: BlockLayoutProps) {
     <section
       style={{
         ...blockBase,
-        padding: "1.25rem",
+        overflow: "hidden",
         background: background || "var(--mrzen-surface)"
       }}
     >
