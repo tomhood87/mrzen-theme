@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 import { useContext, useEffect, useState, type ReactNode, type CSSProperties } from "react"
+import { usePathname } from "next/navigation"
 import { ThemeTokensContext } from "../providers/ThemeProviders"
 import type { LayoutProps } from "../types/theme"
 // @ts-ignore
@@ -209,6 +210,7 @@ export function ArticleLayout({ children, title, subtitle }: LayoutProps) {
 export function MZLayout({ children, title, subtitle }: LayoutProps) {
   const tokens = useContext(ThemeTokensContext)
   const [menuItems, setMenuItems] = useState<MenuItem[]>([])
+  const pathname = usePathname()
 
   useEffect(() => {
     getMenu("main-menu")
@@ -266,22 +268,27 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
           {menuItems.length > 0 && (
             <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
               {menuItems.map((item, index) => {
+                const href = (item as { slug?: string; path?: string }).slug ?? (item as { path?: string }).path ?? "#"
                 const isCta = index === menuItems.length - 1
+                const normalize = (value: string) => (value === "/" ? "/" : value.replace(/\/+$/, ""))
+                const current = pathname ? normalize(pathname) : ""
+                const target = normalize(href)
+                const isActive = current === target || current.startsWith(`${target}/`)
+                const activeStyle = isCta || isActive
+                  ? {
+                      ...navItemStyle,
+                      color: "#FFF",
+                      background: tokens.accent,
+                      fontWeight: 700,
+                      boxShadow: "0 14px 40px rgba(110,240,193,0.35)"
+                    }
+                  : navItemStyle
+
                 return (
                   <a
-                    key={`${item.path}-${item.title}`}
-                    href={item.path}
-                    style={
-                      isCta
-                        ? {
-                            ...navItemStyle,
-                            color: "#FFF",
-                            background: tokens.accent,
-                            fontWeight: 700,
-                            boxShadow: "0 14px 40px rgba(110,240,193,0.35)"
-                          }
-                        : navItemStyle
-                    }
+                    key={`${href}-${item.title}`}
+                    href={href}
+                    style={activeStyle}
                   >
                     {item.title}
                   </a>
@@ -305,13 +312,16 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
                 <div style={{ color: tokens.muted, fontSize: "0.9rem" }}>No menu items</div>
               ) : (
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.4rem" }}>
-                  {menuItems.map(item => (
-                    <li key={`${item.path}-${item.title}`}>
-                      <a href={item.path} style={{ color: tokens.text, textDecoration: "none" }}>
-                        {item.title} <span style={{ color: tokens.muted }}>({item.path})</span>
-                      </a>
-                    </li>
-                  ))}
+                  {menuItems.map(item => {
+                    const href = (item as { slug?: string; path?: string }).slug ?? (item as { path?: string }).path ?? "#"
+                    return (
+                      <li key={`${href}-${item.title}`}>
+                        <a href={href} style={{ color: tokens.text, textDecoration: "none" }}>
+                          {item.title} <span style={{ color: tokens.muted }}>({href})</span>
+                        </a>
+                      </li>
+                    )
+                  })}
                 </ul>
               )}
             </div>
