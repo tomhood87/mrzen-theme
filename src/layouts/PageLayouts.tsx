@@ -263,29 +263,32 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
               <div style={{ color: tokens.muted, fontSize: "0.85rem" }}>Client experience</div>
             </div>
           </div>
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-            <a href="#solutions" style={navItemStyle}>
-              Solutions
-            </a>
-            <a href="#resources" style={navItemStyle}>
-              Resources
-            </a>
-            <a href="#company" style={navItemStyle}>
-              Company
-            </a>
-            <a
-              href="#cta"
-              style={{
-                ...navItemStyle,
-                color: "#FFF",
-                background: tokens.accent,
-                fontWeight: 700,
-                boxShadow: "0 14px 40px rgba(110,240,193,0.35)"
-              }}
-            >
-              Contact
-            </a>
-          </nav>
+          {menuItems.length > 0 && (
+            <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+              {menuItems.map((item, index) => {
+                const isCta = index === menuItems.length - 1
+                return (
+                  <a
+                    key={`${item.slug}-${item.title}`}
+                    href={item.slug}
+                    style={
+                      isCta
+                        ? {
+                            ...navItemStyle,
+                            color: "#FFF",
+                            background: tokens.accent,
+                            fontWeight: 700,
+                            boxShadow: "0 14px 40px rgba(110,240,193,0.35)"
+                          }
+                        : navItemStyle
+                    }
+                  >
+                    {item.title}
+                  </a>
+                )
+              })}
+            </nav>
+          )}
           <details style={{ marginLeft: "1rem" }}>
             <summary style={{ cursor: "pointer", color: tokens.muted, fontSize: "0.95rem" }}>Menu data</summary>
             <div
