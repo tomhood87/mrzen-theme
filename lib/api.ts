@@ -37,13 +37,14 @@ type ApiMenuResponse =
     }
   | Record<string, MenuItem>
 
-export async function getMenu(menuSlug = "main-menu"): Promise<MenuItem[]> {
+export async function getMenu(menuSlug: string): Promise<MenuItem[]> {
   const data = await fetchFromThemeApi<ApiMenuResponse>(`/api/menu?slug=${encodeURIComponent(menuSlug)}`)
+  console.log(data)
   if (!data) return []
 
   if (Array.isArray(data)) return data
 
-  if (typeof data === "object" && data !== null) {
+  if (typeof data === "object") {
     const list = Array.isArray((data as { items?: MenuItem[] }).items)
       ? (data as { items?: MenuItem[] }).items
       : Array.isArray((data as Record<string, MenuItem[]>)[menuSlug])

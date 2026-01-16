@@ -3,6 +3,7 @@
 import { useContext, useEffect, useState, type ReactNode, type CSSProperties } from "react"
 import { ThemeTokensContext } from "../providers/ThemeProviders"
 import type { LayoutProps } from "../types/theme"
+// @ts-ignore
 import { getMenu, type MenuItem } from "../../lib/api"
 
 type ShellProps = { children: ReactNode; tone?: "default" | "muted" }
@@ -276,7 +277,7 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
               href="#cta"
               style={{
                 ...navItemStyle,
-                color: "#041421",
+                color: "#FFF",
                 background: tokens.accent,
                 fontWeight: 700,
                 boxShadow: "0 14px 40px rgba(110,240,193,0.35)"
