@@ -35,6 +35,14 @@ const badgeStyle = {
 
 function Shell({ children, tone = "default" }: ShellProps) {
   const tokens = useContext(ThemeTokensContext)
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([])
+  const pathname = usePathname()
+
+  useEffect(() => {
+    getMenu("main-menu")
+      .then(items => setMenuItems(items))
+      .catch(() => setMenuItems([]))
+  }, [])
 
   const headerStyle: CSSProperties = {
     borderBottom: `1px solid ${tokens.border}`,
@@ -70,17 +78,37 @@ function Shell({ children, tone = "default" }: ShellProps) {
               <div style={{ color: "var(--mrzen-muted)", fontSize: "0.85rem" }}>Framework theme</div>
             </div>
           </div>
-          <nav style={{ display: "flex", gap: "1rem" }}>
-            <a href="#pages" style={navLinkStyle}>
-              Pages
-            </a>
-            <a href="#blocks" style={navLinkStyle}>
-              Blocks
-            </a>
-            <a href="#contact" style={{ ...navLinkStyle, color: "var(--mrzen-text)" }}>
-              Contact
-            </a>
-          </nav>
+          {menuItems.length > 0 && (
+            <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+              {menuItems.map(item => {
+                const href = (item as { slug?: string; path?: string }).slug ?? (item as { path?: string }).path ?? "#"
+                const normalize = (value: string) => (value === "/" ? "/" : value.replace(/\/+$/, ""))
+                const current = pathname ? normalize(pathname) : ""
+                const target = normalize(href)
+                const isActive =
+                  target === "/"
+                    ? current === "/"
+                    : current === target || current.startsWith(`${target}/`)
+                const activeStyle = isActive
+                  ? {
+                      ...navLinkStyle,
+                      padding: "0.35rem 0.7rem",
+                      borderRadius: "8px",
+                      color: "#FFF",
+                      background: tokens.accent,
+                      fontWeight: 700,
+                      boxShadow: "0 14px 40px rgba(110,240,193,0.35)"
+                    }
+                  : navLinkStyle
+
+                return (
+                  <a key={`${href}-${item.title}`} href={href} style={activeStyle}>
+                    {item.title}
+                  </a>
+                )
+              })}
+            </nav>
+          )}
         </div>
       </header>
       <main>{children}</main>
