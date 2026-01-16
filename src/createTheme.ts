@@ -1,4 +1,4 @@
-import HelloWorld from "@/components/HelloWorld"
+import HelloWorld from "../components/HelloWorld"
 import type { Theme, LayoutComponent, BlockLayoutComponent } from "./types/theme"
 import { ThemeProviders } from "./providers/ThemeProviders"
 import { ArticleLayout, DefaultLayout, LandingLayout, MZLayout, PageLayout } from "./layouts/PageLayouts"
