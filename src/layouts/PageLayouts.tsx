@@ -296,36 +296,6 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
               })}
             </nav>
           )}
-          <details style={{ marginLeft: "1rem" }}>
-            <summary style={{ cursor: "pointer", color: tokens.muted, fontSize: "0.95rem" }}>Menu data</summary>
-            <div
-              style={{
-                marginTop: "0.6rem",
-                padding: "0.75rem",
-                borderRadius: "10px",
-                background: tokens.surface,
-                border: `1px solid ${tokens.border}`,
-                minWidth: "220px"
-              }}
-            >
-              {menuItems.length === 0 ? (
-                <div style={{ color: tokens.muted, fontSize: "0.9rem" }}>No menu items</div>
-              ) : (
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.4rem" }}>
-                  {menuItems.map(item => {
-                    const href = (item as { slug?: string; path?: string }).slug ?? (item as { path?: string }).path ?? "#"
-                    return (
-                      <li key={`${href}-${item.title}`}>
-                        <a href={href} style={{ color: tokens.text, textDecoration: "none" }}>
-                          {item.title} <span style={{ color: tokens.muted }}>({href})</span>
-                        </a>
-                      </li>
-                    )
-                  })}
-                </ul>
-              )}
-            </div>
-          </details>
         </div>
       </header>
       <main style={{ padding: "2.5rem 1.5rem" }}>

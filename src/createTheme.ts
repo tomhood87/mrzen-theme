@@ -1,3 +1,4 @@
+import HelloWorld from "@/components/HelloWorld"
 import type { Theme, LayoutComponent, BlockLayoutComponent } from "./types/theme"
 import { ThemeProviders } from "./providers/ThemeProviders"
 import { ArticleLayout, DefaultLayout, LandingLayout, MZLayout, PageLayout } from "./layouts/PageLayouts"
@@ -39,3 +40,7 @@ export function createTheme(): Theme {
     }
   }
 }
+
+// Export the sample HelloWorld component so consumers (and the framework web component
+// loader) can resolve it from the theme entrypoint.
+export { HelloWorld }
