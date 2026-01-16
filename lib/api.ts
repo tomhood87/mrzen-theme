@@ -1,6 +1,7 @@
 export type MenuItem = {
   title: string
-  slug: string
+  slug?: string
+  path?: string
 }
 
 export type SiteSettings = {

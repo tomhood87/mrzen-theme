@@ -269,8 +269,8 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
                 const isCta = index === menuItems.length - 1
                 return (
                   <a
-                    key={`${item.slug}-${item.title}`}
-                    href={item.slug}
+                    key={`${item.path}-${item.title}`}
+                    href={item.path}
                     style={
                       isCta
                         ? {
@@ -306,9 +306,9 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
               ) : (
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.4rem" }}>
                   {menuItems.map(item => (
-                    <li key={`${item.slug}-${item.title}`}>
-                      <a href={item.slug} style={{ color: tokens.text, textDecoration: "none" }}>
-                        {item.title} <span style={{ color: tokens.muted }}>({item.slug})</span>
+                    <li key={`${item.path}-${item.title}`}>
+                      <a href={item.path} style={{ color: tokens.text, textDecoration: "none" }}>
+                        {item.title} <span style={{ color: tokens.muted }}>({item.path})</span>
                       </a>
                     </li>
                   ))}
