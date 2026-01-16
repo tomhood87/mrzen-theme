@@ -103,27 +103,7 @@ function Shell({ children, tone = "default" }: ShellProps) {
 export function DefaultLayout({ children, title, subtitle }: LayoutProps) {
   return (
     <Shell>
-      <section style={containerStyle}>
-        {(title || subtitle) && (
-          <div style={{ marginBottom: "1.5rem" }}>
-            {title && <h1 style={{ margin: 0, fontSize: "2rem" }}>{title}</h1>}
-            {subtitle && (
-              <p style={{ margin: "0.35rem 0 0", color: "var(--mrzen-muted)", maxWidth: 600 }}>{subtitle}</p>
-            )}
-          </div>
-        )}
-        <div
-          style={{
-            padding: "1.75rem",
-            borderRadius: "var(--mrzen-radius)",
-            background: "var(--mrzen-surface)",
-            border: "1px solid var(--mrzen-border)",
-            boxShadow: "0 18px 50px rgba(0,0,0,0.15)"
-          }}
-        >
-          {children}
-        </div>
-      </section>
+      {children}
     </Shell>
   )
 }
