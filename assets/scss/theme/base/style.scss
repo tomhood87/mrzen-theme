@@ -34,6 +34,15 @@ pb-grid {
   max-width: 1600px !important;
 }
 
+/* Default padding on Webiny Page Builder cells */
+pb-cell,
+.webiny-pb-page-element-cell,
+.webiny-pb-grid__cell {
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
 .home-heading {
   position: absolute !important;
   z-index: 20;
