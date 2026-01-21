@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { ThemeTokensContext } from "../providers/ThemeProviders"
 import type { LayoutProps } from "../types/theme"
 // @ts-ignore
-import { getMenu, type MenuItem } from "../../lib/api"
+import { getMenu, getSiteSettings, type MenuItem, type SiteSettings } from "../../lib/api"
 
 type ShellProps = { children: ReactNode; tone?: "default" | "muted" }
 
@@ -36,12 +36,17 @@ const badgeStyle = {
 function Shell({ children, tone = "default" }: ShellProps) {
   const tokens = useContext(ThemeTokensContext)
   const [menuItems, setMenuItems] = useState<MenuItem[]>([])
+  const [siteSettings, setSiteSettings] = useState<SiteSettings | null>(null)
   const pathname = usePathname()
 
   useEffect(() => {
     getMenu("main-menu")
       .then(items => setMenuItems(items))
       .catch(() => setMenuItems([]))
+
+    getSiteSettings()
+      .then(settings => setSiteSettings(settings))
+      .catch(() => setSiteSettings(null))
   }, [])
 
   const headerStyle: CSSProperties = {
@@ -50,7 +55,7 @@ function Shell({ children, tone = "default" }: ShellProps) {
     position: "sticky",
     top: 0,
     backdropFilter: "blur(10px)",
-    zIndex: 1
+    zIndex: 15
   }
 
   const containerStyle = {
@@ -64,17 +69,27 @@ function Shell({ children, tone = "default" }: ShellProps) {
       <header style={headerStyle}>
         <div style={{ ...containerStyle, padding: "1.25rem 1.5rem", display: "flex", alignItems: "center", gap: "1rem", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
-            <div
-              style={{
-                width: 36,
-                height: 36,
-                borderRadius: "10px",
-                background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`,
-                boxShadow: "0 10px 30px rgba(78, 227, 195, 0.25)"
-              }}
-            />
+            {siteSettings?.logo?.src ? (
+              <img
+                src={siteSettings.logo.src}
+                alt={siteSettings.name || "Site logo"}
+                style={{ width: 36, height: 36, objectFit: "contain" }}
+              />
+            ) : (
+              <div
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: "10px",
+                  background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`,
+                  boxShadow: "0 10px 30px rgba(78, 227, 195, 0.25)"
+                }}
+              />
+            )}
             <div>
-              <div style={{ color: "var(--mrzen-text)", fontWeight: 700, letterSpacing: "0.02em" }}>MRZen</div>
+              <div style={{ color: "var(--mrzen-text)", fontWeight: 700, letterSpacing: "0.02em" }}>
+                {siteSettings?.name || "MRZen"}
+              </div>
               <div style={{ color: "var(--mrzen-muted)", fontSize: "0.85rem" }}>Framework theme</div>
             </div>
           </div>
