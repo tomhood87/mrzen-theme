@@ -106,7 +106,6 @@ function Shell({ children, tone = "default" }: ShellProps) {
                       color: "#FFF",
                       background: tokens.accent,
                       fontWeight: 700,
-                      boxShadow: "0 14px 40px rgba(110,240,193,0.35)"
                     }
                   : navLinkStyle
 
