@@ -81,8 +81,7 @@ function Shell({ children, tone = "default" }: ShellProps) {
                   width: 36,
                   height: 36,
                   borderRadius: "10px",
-                  background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`,
-                  boxShadow: "0 10px 30px rgba(78, 227, 195, 0.25)"
+                  background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`
                 }}
               />
             )}
@@ -173,8 +172,7 @@ export function LandingLayout({ children, title, subtitle }: LayoutProps) {
                 color: "#041421",
                 borderRadius: "999px",
                 textDecoration: "none",
-                fontWeight: 700,
-                boxShadow: "0 18px 50px rgba(110,240,193,0.35)"
+                fontWeight: 700
               }}
             >
               Get started
@@ -257,7 +255,6 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
   const headerStyle: CSSProperties = {
     background: tokens.surfaceStrong,
     borderBottom: `1px solid ${tokens.border}`,
-    boxShadow: "0 12px 40px rgba(0,0,0,0.25)",
     position: "sticky",
     top: 0,
     zIndex: 20
@@ -290,8 +287,7 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
                 width: 38,
                 height: 38,
                 borderRadius: "12px",
-                background: `radial-gradient(circle at 30% 30%, ${tokens.accent}, #4bd0f7 70%)`,
-                boxShadow: "0 12px 35px rgba(110,240,193,0.35)"
+                background: `radial-gradient(circle at 30% 30%, ${tokens.accent}, #4bd0f7 70%)`
               }}
             />
             <div>
@@ -314,8 +310,7 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
                       ...navItemStyle,
                       color: "#FFF",
                       background: tokens.accent,
-                      fontWeight: 700,
-                      boxShadow: "0 14px 40px rgba(110,240,193,0.35)"
+                      fontWeight: 700
                     }
                   : navItemStyle
 

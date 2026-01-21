@@ -26,8 +26,7 @@ export function HeroBlockLayout({ children }: BlockLayoutProps) {
       style={{
         ...blockBase,
         padding: "2rem",
-        background: "linear-gradient(135deg, rgba(78,227,195,0.18), rgba(20,29,61,0.9))",
-        boxShadow: "0 18px 50px rgba(0,0,0,0.18)"
+        background: "linear-gradient(135deg, rgba(78,227,195,0.18), rgba(20,29,61,0.9))"
       }}
     >
       <div style={{ display: "grid", gap: "0.6rem" }}>
