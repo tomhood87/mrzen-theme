@@ -73,7 +73,7 @@ function Shell({ children, tone = "default" }: ShellProps) {
               <img
                 src={siteSettings.logo.src}
                 alt={siteSettings.name || "Site logo"}
-                style={{ width: 36, height: 36, objectFit: "contain" }}
+                style={{ width: 162, height: 53, objectFit: "contain" }}
               />
             ) : (
               <div
@@ -86,12 +86,6 @@ function Shell({ children, tone = "default" }: ShellProps) {
                 }}
               />
             )}
-            <div>
-              <div style={{ color: "var(--mrzen-text)", fontWeight: 700, letterSpacing: "0.02em" }}>
-                {siteSettings?.name || "MRZen"}
-              </div>
-              <div style={{ color: "var(--mrzen-muted)", fontSize: "0.85rem" }}>Framework theme</div>
-            </div>
           </div>
           {menuItems.length > 0 && (
             <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
