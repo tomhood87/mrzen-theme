@@ -16,6 +16,10 @@ const API_BASE = process.env.NEXT_PUBLIC_THEME_API_BASE?.replace(/\/$/, "") ?? "
 function buildApiUrl(path: string): string {
   // Always return an absolute URL; Node's fetch rejects relative URLs.
   if (API_BASE) return `${API_BASE}${path}`
+  if (typeof window !== "undefined") {
+    // In the browser, prefer the current origin so we hit the same host/port.
+    return new URL(path, window.location.origin).toString()
+  }
   const origin = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "http://localhost:3000"
   return new URL(path, origin).toString()
 }
