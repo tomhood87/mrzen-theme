@@ -55,7 +55,7 @@ function Shell({ children, tone = "default" }: ShellProps) {
     position: "sticky",
     top: 0,
     backdropFilter: "blur(10px)",
-    zIndex: 15
+    zIndex: 30
   }
 
   const containerStyle = {
