@@ -20,7 +20,7 @@ const DEFAULT_TOKENS: ThemeTokens = {
   muted: "#666",
   accent: "#0043b3",
   border: "rgba(255,255,255,0.08)",
-  radius: "14px",
+  radius: "0px",
   fontStack: "'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif"
 }
 

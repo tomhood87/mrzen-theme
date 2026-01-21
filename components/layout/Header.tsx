@@ -22,11 +22,16 @@ export default async function Header() {
       </div>
       <nav className="d-none d-lg-block mb-3">
         <ul className="mz-list mz-list--menu">
-          {menuItems.map(item => (
-            <li key={item.slug} className="mz-link">
-              <Link href={item.slug}>{item.title}</Link>
-            </li>
-          ))}
+          {menuItems.map(item => {
+            const href = item.slug ?? item.path
+            if (!href) return null
+
+            return (
+              <li key={href} className="mz-link">
+                <Link href={href}>{item.title}</Link>
+              </li>
+            )
+          })}
         </ul>
       </nav>
     </header>

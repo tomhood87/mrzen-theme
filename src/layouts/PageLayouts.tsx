@@ -10,7 +10,7 @@ import { getMenu, type MenuItem } from "../../lib/api"
 type ShellProps = { children: ReactNode; tone?: "default" | "muted" }
 
 const containerStyle = {
-  maxWidth: "1600px",
+  maxWidth: "100%",
   margin: "0 auto",
   padding: "2.5rem 1.5rem"
 } satisfies CSSProperties
@@ -325,7 +325,7 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
           )}
         </div>
       </header>
-      <main style={{ padding: "2.5rem 1.5rem" }}>
+      <main>
         <section
           style={{
             ...containerStyle,
@@ -335,27 +335,12 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
           }}
         >
           {(title || subtitle) && (
-            <div
-              style={{
-                background: `linear-gradient(120deg, rgba(110,240,193,0.1), ${tokens.surfaceStrong})`,
-                border: `1px solid ${tokens.border}`,
-                borderRadius: "var(--mrzen-radius)",
-                padding: "1.5rem"
-              }}
-            >
+            <div>
               {title && <h1 style={{ margin: "0 0 0.35rem" }}>{title}</h1>}
               {subtitle && <p style={{ margin: 0, color: tokens.muted }}>{subtitle}</p>}
             </div>
           )}
-          <div
-            style={{
-              padding: "1.5rem",
-              borderRadius: "var(--mrzen-radius)",
-              background: tokens.surface,
-              border: `1px solid ${tokens.border}`,
-              boxShadow: "0 18px 50px rgba(0,0,0,0.18)"
-            }}
-          >
+          <div>
             {children}
           </div>
         </section>
