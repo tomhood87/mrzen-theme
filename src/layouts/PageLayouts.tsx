@@ -281,21 +281,23 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
             justifyContent: "space-between"
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            <div
-              style={{
-                width: 38,
-                height: 38,
-                borderRadius: "12px",
-                background: `radial-gradient(circle at 30% 30%, ${tokens.accent}, #4bd0f7 70%)`
-              }}
-            />
-            <div>
-              <div style={{ fontWeight: 800, letterSpacing: "0.04em", fontSize: "1.1rem", color: tokens.text }}>
-                MZ
-              </div>
-              <div style={{ color: tokens.muted, fontSize: "0.85rem" }}>Client experience</div>
-            </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
+            {siteSettings?.logo?.src ? (
+              <img
+                src={siteSettings.logo.src}
+                alt={siteSettings.name || "Site logo"}
+                style={{ width: 162, height: 53, objectFit: "contain" }}
+              />
+            ) : (
+              <div
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: "10px",
+                  background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`
+                }}
+              />
+            )}
           </div>
           {menuItems.length > 0 && (
             <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
