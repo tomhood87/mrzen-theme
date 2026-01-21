@@ -244,12 +244,17 @@ export function ArticleLayout({ children, title, subtitle }: LayoutProps) {
 export function MZLayout({ children, title, subtitle }: LayoutProps) {
   const tokens = useContext(ThemeTokensContext)
   const [menuItems, setMenuItems] = useState<MenuItem[]>([])
+  const [siteSettings, setSiteSettings] = useState<SiteSettings | null>(null)
   const pathname = usePathname()
 
   useEffect(() => {
     getMenu("main-menu")
-      .then(items => setMenuItems(items))
-      .catch(() => setMenuItems([]))
+    .then(items => setMenuItems(items))
+    .catch(() => setMenuItems([]))
+
+    getSiteSettings()
+    .then(settings => setSiteSettings(settings))
+    .catch(() => setSiteSettings(null))
   }, [])
 
   const headerStyle: CSSProperties = {
