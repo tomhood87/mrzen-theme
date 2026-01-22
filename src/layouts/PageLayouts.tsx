@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
+import Link from "next/link"
 import { useContext, useEffect, useState, type ReactNode, type CSSProperties } from "react"
 import { usePathname } from "next/navigation"
 import { ThemeTokensContext } from "../providers/ThemeProviders"
@@ -69,22 +70,24 @@ function Shell({ children, tone = "default" }: ShellProps) {
       <header style={headerStyle}>
         <div style={{ ...containerStyle, padding: "1.25rem 1.5rem", display: "flex", alignItems: "center", gap: "1rem", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
-            {siteSettings?.logo?.src ? (
-              <img
-                src={siteSettings.logo.src}
-                alt={siteSettings.name || "Site logo"}
-                style={{ width: 162, height: 53, objectFit: "contain" }}
-              />
-            ) : (
-              <div
-                style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: "10px",
-                  background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`
-                }}
-              />
-            )}
+            <Link href="/">
+              {siteSettings?.logo?.src ? (
+                <img
+                  src={siteSettings.logo.src}
+                  alt={siteSettings.name || "Site logo"}
+                  style={{ width: 162, height: 53, objectFit: "contain" }}
+                />
+              ) : (
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: "10px",
+                    background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`
+                  }}
+                />
+              )}
+            </Link>
           </div>
           {menuItems.length > 0 && (
             <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
@@ -287,22 +290,24 @@ export function MZLayout({ children, title, subtitle }: LayoutProps) {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
-            {siteSettings?.logo?.src ? (
-              <img
-                src={siteSettings.logo.src}
-                alt={siteSettings.name || "Site logo"}
-                style={{ width: 162, height: 53, objectFit: "contain" }}
-              />
-            ) : (
-              <div
-                style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: "10px",
-                  background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`
-                }}
-              />
-            )}
+            <Link href="/">
+              {siteSettings?.logo?.src ? (
+                <img
+                  src={siteSettings.logo.src}
+                  alt={siteSettings.name || "Site logo"}
+                  style={{ width: 162, height: 53, objectFit: "contain" }}
+                />
+              ) : (
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: "10px",
+                    background: `linear-gradient(145deg, ${tokens.accent}, #4bd0f7)`
+                  }}
+                />
+              )}
+            </Link>
           </div>
           {menuItems.length > 0 && (
             <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
