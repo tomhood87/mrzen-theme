@@ -4,6 +4,10 @@
 // Synopsis:    Core styles for the website - SASS
 //============================================================================*/
 
-.mz-cell {
-  padding: 0 var(--mz-p-df);
+@media (min-width: 100px) {
+
+  .mz-cell {
+    padding: 0 var(--mz-p-df);
+  }
+
 }
