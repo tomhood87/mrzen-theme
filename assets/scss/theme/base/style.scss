@@ -65,10 +65,9 @@ pb-cell,
 
 
   h1 {
-    @include fluid-prop(font-size, $viewport-xs, $viewport-xl, 48px, 92px);
-
     color: var(--mz-base-white);
     font-weight: 800;
+    @include fluid-prop(font-size, $viewport-xs, $viewport-xl, 48px, 92px);
 
     a {
       -webkit-text-stroke-width: 2px;
