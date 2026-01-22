@@ -33,16 +33,16 @@ pb-swiperimagecarousel {
   overflow: hidden;
 }
 
-.webiny-pb-section__content,
-.webiny-pb-section__content .webiny-pb-grid,
+.mz-pb-section__content,
+.mz-pb-section__content .mz-pb-grid,
 pb-grid {
   max-width: 1600px !important;
 }
 
 /* Default padding on Webiny Page Builder cells */
 pb-cell,
-.webiny-pb-page-element-cell,
-.webiny-pb-grid__cell {
+.mz-pb-page-element-cell,
+.mz-pb-grid__cell {
   padding-left: 15px;
   padding-right: 15px;
   box-sizing: border-box;
