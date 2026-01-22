@@ -4,6 +4,8 @@
 // Synopsis:    Main header styles for the website - SASS
 //============================================================================*/
 
+@use "../base/mixins" as *;
+
 .mz-header {
   border-bottom: 1px solid var(--mz-border-colour);
   background: var(--mz-base-white);

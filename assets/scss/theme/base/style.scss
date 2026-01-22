@@ -4,6 +4,9 @@
 // Synopsis:    Main styles for the website - SASS
 //============================================================================*/
 
+@use "./variables" as *;
+@use "./mixins" as *;
+
 body {
   font-family: Montserrat,sans-serif;
 }

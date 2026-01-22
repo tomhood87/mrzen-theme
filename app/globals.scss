@@ -1,4 +1,4 @@
-@import "../assets/scss/theme.scss";
+@use "../assets/scss/theme" as *;
 
 :root {
   color-scheme: light;
