@@ -51,7 +51,7 @@ type ApiMenuResponse =
 
 export async function getMenu(menuSlug: string): Promise<MenuItem[]> {
   const data = await fetchFromThemeApi<ApiMenuResponse>(`/api/menu?slug=${encodeURIComponent(menuSlug)}`)
-  console.log(data)
+
   if (!data) return []
 
   if (Array.isArray(data)) return data

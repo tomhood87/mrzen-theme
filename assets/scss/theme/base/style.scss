@@ -29,6 +29,7 @@ iframe {
 //============================================================================*/
 
 pb-swiperimagecarousel {
+  margin-bottom: 30px;
   overflow: hidden;
 }
 
@@ -87,6 +88,13 @@ pb-cell,
 .home-video {
   overflow: hidden;
   z-index: 10;
+
+  .media-frame {
+    position: unset;
+    overflow: visible;
+    background: transparent;
+    border-radius: 0;
+  }
 
   iframe {
     width: 100vw;
